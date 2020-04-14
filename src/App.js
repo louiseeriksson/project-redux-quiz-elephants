@@ -33,7 +33,7 @@ export const App = () => {
             <Route exact path='/resultPage'>
               <ResultPage />
             </Route>
-            <Route exact path='/questions/01'>
+            <Route exact path='/questions/:questionid'>
               <CurrentQuestion />
             </Route>
         </Switch>
