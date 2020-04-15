@@ -23,7 +23,7 @@ export const CurrentQuestion = () => {
 				answerIndex: answer
 			})
 		);
-
+		setAnswer('');
 		dispatch(quiz.actions.goToNextQuestion());
 	};
 
@@ -38,6 +38,7 @@ export const CurrentQuestion = () => {
 			<h1>Which country has this flag?</h1>
 			<span>{question.questionText}</span>
 			<i
+				style={{ fontSize: 50 }}
 				class={`em em-flag-${question.questionClass}`}
 				aria-role="presentation"
 				aria-label={`${question.questionFlag} Flag`}

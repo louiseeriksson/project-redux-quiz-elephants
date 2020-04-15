@@ -20,8 +20,32 @@ const questions = [
 		id: 3,
 		questionFlag: 'Sweden',
 		questionClass: 'se',
-		options: [ 'Great Brittan', 'Japan', 'Sweden', 'France' ],
+		options: [ 'Great Britain', 'Japan', 'Sweden', 'France' ],
 		correctAnswerIndex: 2
+	},
+
+	{
+		id: 4,
+		questionFlag: 'Australia',
+		questionClass: 'au',
+		options: [ 'Australia', 'Japan', 'Sweden', 'France' ],
+		correctAnswerIndex: 0
+	},
+
+	{
+		id: 5,
+		questionFlag: 'Japan',
+		questionClass: 'jp',
+		options: [ 'Australia', 'Japan', 'Sweden', 'France' ],
+		correctAnswerIndex: 1
+	},
+
+	{
+		id: 6,
+		questionFlag: 'Chile',
+		questionClass: 'cl',
+		options: [ 'Australia', 'Japan', 'Sweden', 'Chile' ],
+		correctAnswerIndex: 3
 	}
 ];
 
