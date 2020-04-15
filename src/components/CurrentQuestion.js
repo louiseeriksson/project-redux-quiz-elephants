@@ -29,6 +29,9 @@ export const CurrentQuestion = () => {
 
 	const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuesionIndex]);
 	const userDone = useSelector((state) => state.quiz.quizOver);
+	const allQuestions = useSelector((state) => state.quiz.questions.length);
+	const myQuestion = useSelector((state) => state.quiz.currentQuesionIndex);
+
 	if (!question) {
 		return <h1>Oh no! I could not find the current question!</h1>;
 	}
@@ -52,7 +55,7 @@ export const CurrentQuestion = () => {
 				);
 			})}
 
-			{userDone ? (
+			{allQuestions === myQuestion + 1 ? (
 				<Link to="/resultPage">
 					<Button info="ResultPage" />
 				</Link>
@@ -64,7 +67,3 @@ export const CurrentQuestion = () => {
 		</form>
 	);
 };
-
-{
-	/* <span style="font-family: &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, NotoColorEmoji, &quot;Segoe UI Symbol&quot;, &quot;Android Emoji&quot;, EmojiSymbols;">💌</span> */
-}

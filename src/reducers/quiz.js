@@ -46,6 +46,14 @@ const questions = [
 		questionClass: 'cl',
 		options: [ 'Australia', 'Japan', 'Sweden', 'Chile' ],
 		correctAnswerIndex: 3
+	},
+
+	{
+		id: 7,
+		questionFlag: '',
+		questionClass: '',
+		options: [ '' ],
+		correctAnswerIndex: 3
 	}
 ];
 
