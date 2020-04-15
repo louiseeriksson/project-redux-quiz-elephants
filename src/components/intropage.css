@@ -1,0 +1,14 @@
+.mainContainer {
+  width: 375px;
+  height: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+p {
+  width: 300px;
+  margin-bottom: 50px;
+}

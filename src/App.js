@@ -35,7 +35,7 @@ export const App = () => {
             <CurrentQuestion />
           </Route>
         </Switch>
-        <ProgressBar />
+        {/* <ProgressBar /> */}
       </BrowserRouter>
     </Provider>
   );

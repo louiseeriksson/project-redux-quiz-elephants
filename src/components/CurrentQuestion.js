@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button } from './Button'
 import { quiz } from '../reducers/quiz'
+import './CurrentQuestion.css'
+
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch()
@@ -34,16 +36,15 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <h1>Question: {question.questionText}</h1>
-      <p>{answer}</p>
+    <form className='form-container' onSubmit={handleOnSubmit}>
+      <h1>{question.questionText}</h1>
+      <section className='answer-container'>
       {question.options.map((option, index) => {
         return (
-          <button onClick={(e) => setAnswer(e.target.value)} type="submit" value={index}>{option}</button>
-
+          <button className='answer-button' onClick={(e) => setAnswer(e.target.value)} type="submit" value={index}>{option}</button>
         )
       })}
-
+      </section>
       {userDone ? <Link to="/resultPage"><Button info="ResultPage" />
       </Link> : <Link to={`/questions/${question.id}`}><button onClick={handleNextQuestion}>next question</button></Link>}
 

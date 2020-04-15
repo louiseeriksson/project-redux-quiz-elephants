@@ -1,0 +1,12 @@
+.answer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    width: 375px;
+}
+
+.answer-button {
+    margin: 10px;
+}
