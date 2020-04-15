@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -43,14 +41,4 @@ export const App = () => {
   );
 };
 
-{ /* <Router>
-<Switch>
-  <Route exact path="/">
-    <MovieList movies={allMovies} />
-  </Route>
 
-  <Route exact path="/movie/:moviedetails">
-    <MovieDetails movies={allMovies} />
-  </Route>
-</Switch>
-</Router> */ }
