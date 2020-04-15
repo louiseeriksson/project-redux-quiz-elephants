@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { quiz } from '../reducers/quiz'
 import './resultpage.css'
@@ -7,6 +7,11 @@ import './resultpage.css'
 
 export const ResultPage = () => {
   const answertotal = useSelector((state) => state.quiz.answers)
+  const dispatch = useDispatch()
+  const handleRestart = () => {
+
+    dispatch(quiz.actions.restart())
+  }
 
   return (
     <section>
@@ -25,13 +30,16 @@ export const ResultPage = () => {
         })
       }
 
-      <Link><button></button></Link>
+      <Link to='/'><button onClick={handleRestart}>Restart</button></Link>
     </section>
   )
 }
 
 
 
+// restart: () => {
+//   return initialState
+// }
 
 // questionId,
 // answerIndex,

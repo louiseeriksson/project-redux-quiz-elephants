@@ -26,19 +26,30 @@ export const App = () => {
 
         <Switch>
           <Route exact path='/'>
-              <IntroPage />
-            </Route>
-            <Route exact path='/resultPage'>
-              <ResultPage />
-            </Route>
-            <Route exact path='/questions/:questionid'>
-              <CurrentQuestion />
-            </Route>
+            <IntroPage />
+          </Route>
+          <Route exact path='/resultPage'>
+            <ResultPage />
+          </Route>
+          <Route exact path='/questions/:questionid'>
+            <CurrentQuestion />
+          </Route>
         </Switch>
         <ProgressBar />
       </BrowserRouter>
     </Provider>
   );
 };
+
+
+// Louise
+// Ann
+// Sara
+// Ebba
+//Styling
+// Mattias
+// Elin
+// Lisa
+
 
 
