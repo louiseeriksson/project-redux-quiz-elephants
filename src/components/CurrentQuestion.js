@@ -46,7 +46,7 @@ export const CurrentQuestion = () => {
       })}
       </section>
       {userDone ? <Link to="/resultPage"><Button info="ResultPage" />
-      </Link> : <Link to={`/questions/${question.id}`}><button onClick={handleNextQuestion}>next question</button></Link>}
+      </Link> : <Link to={`/questions/${question.id}`}><button onClick={handleNextQuestion}>Next question</button></Link>}
 
     </form>
   )

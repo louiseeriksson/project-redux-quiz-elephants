@@ -8,41 +8,33 @@ import './resultpage.css'
 export const ResultPage = () => {
   const answertotal = useSelector((state) => state.quiz.answers)
   const dispatch = useDispatch()
+
+  const questionTotal = useSelector((state) => state.quiz.questions.length)
+  const questionComplete = answertotal.filter(item => item.isCorrect).length
+  
   const handleRestart = () => {
 
     dispatch(quiz.actions.restart())
   }
 
   return (
-    <section>
-      <h1>RESULT COMPONENT</h1>
+    <section className='result-container'>
+      <h1>Your result</h1>
+      <h2>{questionComplete} / {questionTotal}</h2>
+      <article className="result-list">
       {
         answertotal.map((answer) => {
 
           return (
-            <div>
-              <p>{answer.questionId}</p>
-              <p>{answer.answerIndex}</p>
-              <p>{answer.answer}</p>
-              <p>{answer.isCorrect ? 'good job' : 'sorry'}</p>
-            </div>
-          )
-        })
-      }
+              <p className="result-text">Question {answer.questionId} {answer.isCorrect ? '✅' : '❌'}</p>
+              )
+            })
+          }
+        </article>
+
 
       <Link to='/'><button onClick={handleRestart}>Restart</button></Link>
     </section>
   )
 }
 
-
-
-// restart: () => {
-//   return initialState
-// }
-
-// questionId,
-// answerIndex,
-// question,
-// answer: question.options[answerIndex],
-// isCorrect: question.correctAnswerIndex == answerIndex
