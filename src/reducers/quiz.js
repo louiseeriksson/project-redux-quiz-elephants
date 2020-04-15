@@ -4,13 +4,25 @@ import { createSlice } from '@reduxjs/toolkit';
 const questions = [
 	{
 		id: 1,
-		questionText: 'Who set the Olympic record for the 100m dash in 2012?',
-		options: [ 'Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell' ],
-		correctAnswerIndex: 0
+		questionFlag: 'France',
+		questionClass: 'fr',
+		options: [ 'Great Britain', 'Japan', 'Norway', 'France' ],
+		correctAnswerIndex: 3
 	},
-	{ id: 2, questionText: '🇸🇪', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 },
-	{ id: 3, questionText: 'U+1F1E9', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 },
-	{ id: 3, questionText: '\u{1F43A}', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 }
+	{
+		id: 2,
+		questionFlag: 'South Africa',
+		questionClass: 'za',
+		options: [ 'Great Britain', 'South Korea', 'Norway', 'South Africa' ],
+		correctAnswerIndex: 3
+	},
+	{
+		id: 3,
+		questionFlag: 'Sweden',
+		questionClass: 'se',
+		options: [ 'Great Brittan', 'Japan', 'Sweden', 'France' ],
+		correctAnswerIndex: 2
+	}
 ];
 
 // Countries

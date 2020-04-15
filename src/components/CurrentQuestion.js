@@ -32,15 +32,17 @@ export const CurrentQuestion = () => {
 	if (!question) {
 		return <h1>Oh no! I could not find the current question!</h1>;
 	}
-	const try1 = 'Gambia Flag';
-	const try2 = 'gm';
 
 	return (
 		<form onSubmit={handleOnSubmit}>
-			<h1>Question: {question.questionText}</h1>
+			<h1>Which country has this flag?</h1>
 			<span>{question.questionText}</span>
-			<i class={`em em-flag-${try2}`} aria-role="presentation" aria-label={try1} />
-			<p>{answer}</p>
+			<i
+				class={`em em-flag-${question.questionClass}`}
+				aria-role="presentation"
+				aria-label={`${question.questionFlag} Flag`}
+			/>
+			{answer && <p>{`You have chosen ${question.options[answer]}`}</p>}
 			{question.options.map((option, index) => {
 				return (
 					<button onClick={(e) => setAnswer(e.target.value)} type="submit" value={index}>
