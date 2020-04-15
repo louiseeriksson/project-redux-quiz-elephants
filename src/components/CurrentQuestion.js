@@ -47,12 +47,12 @@ export const CurrentQuestion = () => {
 				aria-role="presentation"
 				aria-label={`${question.questionFlag} Flag`}
 			/>
-			{answer && <p>{`You have chosen ${question.options[answer]}`}</p>}
+
 			<section className="answer-container">
 				{question.options.map((option, index) => {
 					return (
 						<button
-							className="answer-button"
+							className={answer == index ? 'checked' : 'answer-button'}
 							onClick={(e) => setAnswer(e.target.value)}
 							type="submit"
 							value={index}
@@ -74,37 +74,3 @@ export const CurrentQuestion = () => {
 		</form>
 	);
 };
-
-{
-	/* </form>
-  return (
-    <form className='form-container' onSubmit={handleOnSubmit}>
-      <h1>{question.questionText}</h1>
-      <section className='answer-container'>
-      {question.options.map((option, index) => {
-        return (
-          <button className='answer-button' onClick={(e) => setAnswer(e.target.value)} type="submit" value={index}>{option}</button>
-        )
-      })}
-      </section>
-      {userDone ? <Link to="/resultPage"><Button info="ResultPage" />
-      </Link> : <Link to={`/questions/${question.id}`}><button onClick={handleNextQuestion}>Next question</button></Link>}
-
-    
-  )
-} */
-}
-{
-	/* {allQuestions === myQuestion + 1 ? (
-				<Link to="/resultPage">
-					<Button info="ResultPage" />
-				</Link>
-			) : (
-				<Link to={`/questions/${question.id}`}>
-					<button onClick={handleNextQuestion}>next question</button>
-				</Link>
-			)}
-		</form>
-	);
-}; */
-}

@@ -52,19 +52,10 @@ const questions = [
 		id: 7,
 		questionFlag: '',
 		questionClass: '',
-		options: [ '' ],
+		options: [ 'You are finished' ],
 		correctAnswerIndex: 3
 	}
 ];
-
-// Countries
-// France <i class="em em-fr" aria-role="presentation" aria-label="France Flag"></i>
-// South africa <i class="em em-flag-za" aria-role="presentation" aria-label="South Africa Flag"></i>
-// Sweden <i class="em em-flag-se" aria-role="presentation" aria-label="Sweden Flag"></i>
-// Australia <i class="em em-flag-au" aria-role="presentation" aria-label="Australia Flag"></i>
-// Japan <i class="em em-jp" aria-role="presentation" aria-label="Japan Flag"></i>
-// Chile <i class="em em-flag-cl" aria-role="presentation" aria-label="Chile Flag"></i>
-//
 
 const initialState = {
 	questions,
