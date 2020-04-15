@@ -1,24 +1,39 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
-]
+	{
+		id: 1,
+		questionText: 'Who set the Olympic record for the 100m dash in 2012?',
+		options: [ 'Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell' ],
+		correctAnswerIndex: 0
+	},
+	{ id: 2, questionText: '🇸🇪', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 },
+	{ id: 3, questionText: 'U+1F1E9', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 },
+	{ id: 3, questionText: '\u{1F43A}', options: [ '2012', '2014', '2016', '2018' ], correctAnswerIndex: 2 }
+];
+
+// Countries
+// France <i class="em em-fr" aria-role="presentation" aria-label="France Flag"></i>
+// South africa <i class="em em-flag-za" aria-role="presentation" aria-label="South Africa Flag"></i>
+// Sweden <i class="em em-flag-se" aria-role="presentation" aria-label="Sweden Flag"></i>
+// Australia <i class="em em-flag-au" aria-role="presentation" aria-label="Australia Flag"></i>
+// Japan <i class="em em-jp" aria-role="presentation" aria-label="Japan Flag"></i>
+// Chile <i class="em em-flag-cl" aria-role="presentation" aria-label="Chile Flag"></i>
+//
 
 const initialState = {
-  questions,
-  answers: [],
-  currentQuesionIndex: 0,
-  quizOver: false
-}
+	questions,
+	answers: [],
+	currentQuesionIndex: 0,
+	quizOver: false
+};
 
 export const quiz = createSlice({
-  name: 'quiz',
-  initialState,
-  reducers: {
-
-    /**
+	name: 'quiz',
+	initialState,
+	reducers: {
+		/**
      * Use this action when a user selects an answer to the question.
      * The answer will be stored in the `quiz.answers` state with the
      * following values:
@@ -33,52 +48,55 @@ export const quiz = createSlice({
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */
-    submitAnswer: (state, action) => {
-      const { questionId, answerIndex } = action.payload
-      const question = state.questions.find((q) => q.id === questionId)
+		submitAnswer: (state, action) => {
+			const { questionId, answerIndex } = action.payload;
+			const question = state.questions.find((q) => q.id === questionId);
 
-      if (!question) {
-        throw new Error('Could not find question! Check to make sure you are passing the question id correctly.')
-      }
+			if (!question) {
+				throw new Error(
+					'Could not find question! Check to make sure you are passing the question id correctly.'
+				);
+			}
 
-      if (question.options[answerIndex] === undefined) {
-        throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`)
-      }
+			if (question.options[answerIndex] === undefined) {
+				throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`);
+			}
 
-      state.answers.push({
-        questionId,
-        answerIndex,
-        question,
-        answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex == answerIndex
-      })
-    },
+			state.answers.push({
+				questionId,
+				answerIndex,
+				question,
+				answer: question.options[answerIndex],
+				isCorrect: question.correctAnswerIndex == answerIndex
+			});
+		},
 
-    /**
+		/**
      * Use this action to progress the quiz to the next question. If there's
      * no more questions (the user was on the final question), set `quizOver`
      * to `true`.
      *
      * This action does not require a payload.
      */
-    goToNextQuestion: (state) => {
-      if (state.currentQuesionIndex + 1 === state.questions.length) {
-        state.quizOver = true
-      } else {
-        state.currentQuesionIndex += 1
-      }
-    },
+		goToNextQuestion: (state) => {
+			if (state.currentQuesionIndex + 1 === state.questions.length) {
+				state.quizOver = true;
+			} else {
+				state.currentQuesionIndex += 1;
+			}
+		},
 
-    /**
+		/**
      * Use this action to reset the state to the initial state the page had
      * when it was loaded. Who doesn't like re-doing a quiz when you know the
      * answers?!
      *
      * This action does not require a payload.
      */
-    restart: () => {
-      return initialState
-    }
+		restart: () => {
+			return initialState;
+		}
+	}
+});
 
-  }
-})
+//<i class="em em-flag-se" aria-role="presentation" aria-label="Sweden Flag"></i>
