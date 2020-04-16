@@ -6,8 +6,9 @@
 	margin-bottom: 20px;
 }
 
+/* Updated width to 400px to get "Which country has this flag" on one line */
 .form-container {
-	width: 375px;
+	width: 400px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -29,4 +30,8 @@
 	background-color: blue;
 	color: white;
 	margin: 10px;
+}
+
+.progressbar {
+	margin-top: 30px;
 }

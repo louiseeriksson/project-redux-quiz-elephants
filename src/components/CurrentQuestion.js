@@ -1,18 +1,16 @@
-/* eslint-disable indent */
-/* eslint-disable react/self-closing-comp */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import { quiz } from '../reducers/quiz';
 import './CurrentQuestion.css';
+import { ResultPage } from './ResultPage';
 
 export const CurrentQuestion = () => {
 	const dispatch = useDispatch();
 	const [ answer, setAnswer ] = useState('');
 
 	const handleOnSubmit = (e) => {
-		// Prevent page reload
 		e.preventDefault();
 	};
 
@@ -36,6 +34,13 @@ export const CurrentQuestion = () => {
 	if (!question) {
 		return <h1>Oh no! I could not find the current question!</h1>;
 	}
+
+	// Added this conditional rendering so ResultPage will show if userDone is true instead of the questions
+	if (userDone) {
+    return (
+      <ResultPage />
+    )
+  }
 
 	return (
 		<form className="form-container" onSubmit={handleOnSubmit}>
@@ -62,15 +67,16 @@ export const CurrentQuestion = () => {
 					);
 				})}
 			</section>
-			{allQuestions === myQuestion + 1 ? (
-				<Link to="/resultPage">
-					<Button info="ResultPage" />
-				</Link>
-			) : (
+				{/* Changed this conditional rendering to only one button & link since we want to change the text on the button but not its functionality when on last question */}
+				{/* The rendering on line 42 will instead show us the results if the quiz is done */}
 				<Link to={`/questions/${question.id}`}>
-					<button onClick={handleNextQuestion}>next question</button>
+					<button onClick={handleNextQuestion}>{myQuestion === allQuestions - 1 ? 'Show result' : 'Next question'}</button>
 				</Link>
-			)}
+
+			{/* Added this section to display current question / total questions  */}
+			<section className="progressbar">
+				{myQuestion} / {allQuestions}
+			</section>
 		</form>
 	);
 };

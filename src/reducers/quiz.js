@@ -48,13 +48,7 @@ const questions = [
 		correctAnswerIndex: 3
 	},
 
-	{
-		id: 7,
-		questionFlag: '',
-		questionClass: '',
-		options: [ 'You are finished' ],
-		correctAnswerIndex: 3
-	}
+
 ];
 
 const initialState = {
