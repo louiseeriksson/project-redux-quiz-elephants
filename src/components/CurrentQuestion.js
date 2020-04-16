@@ -76,7 +76,7 @@ export const CurrentQuestion = () => {
 
       {/* Added this section to display current question / total questions  */}
       <section className="progressbar">
-        {myQuestion} / {allQuestions}
+        {myQuestion + 1} / {allQuestions}
       </section>
     </form>
   );
