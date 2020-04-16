@@ -7,7 +7,7 @@ import { ResultPage } from './ResultPage';
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
-  // Changed setAnswer('') to setAnswer(). This fixed that and empty string is equal to index 0 somehow.
+  // Changed setAnswer('') to setAnswer(). This fixed all options to be black, somehow '' is equal to 0 and made the first option blue.
   const [answer, setAnswer] = useState();
 
   const handleOnSubmit = (e) => {
@@ -22,7 +22,7 @@ export const CurrentQuestion = () => {
         answerIndex: answer
       })
     );
-    // Changed setAnswer('') to setAnswer(). This fixed that and empty string is equal to index 0 somehow.
+    // Changed setAnswer('') to setAnswer(). This fixed all options to be black, somehow '' is equal to 0 and made the first option blue.
     setAnswer();
     dispatch(quiz.actions.goToNextQuestion());
   };
@@ -36,7 +36,7 @@ export const CurrentQuestion = () => {
     return <h1>Oh no! I could not find the current question!</h1>;
   }
 
-  // Added this conditional rendering so ResultPage will show if userDone is true instead of the questions
+  // Added this conditional rendering so ResultPage will show if userDone is true instead of showing the questions
   if (userDone) {
     return (
       <ResultPage />
